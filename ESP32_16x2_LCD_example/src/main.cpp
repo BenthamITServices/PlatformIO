@@ -32,16 +32,15 @@ const int LCD_ROWS = 2;
    lcd.setCursor(0, 0);
    lcd.print("Time elapsed");
    delay(500);
-   
-  
+     
  } /*--(end setup )---*/
 
 void loop() {
-  // put your main code here, to run repeatedly:
   // Here cursor is placed on first position (col: 0) of the second line (row: 1)
   lcd.setCursor(0, 1);
   // We write the number of seconds elapsed
   lcd.print(millis() / 1000);
+  // Now we print the word Seconds with an initial space
   lcd.print(" Seconds");
-  delay(100);
+  delay(1000);
 }
