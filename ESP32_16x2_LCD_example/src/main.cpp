@@ -13,20 +13,35 @@ const int LCD_ROWS = 2;
 //hd44780_I2Cexp lcd;  // declare lcd object: auto locate & auto config expander chip
  hd44780_I2Cexp lcd(0x27);
 
-void setup() {
-  // put your setup code here, to run once:
+ /*-----( Declare Variables )-----*/
+ int status;
 
-    // Print a message to the LCD.
-  lcd.clear();
-  delay(1500);
-  lcd.setCursor(0, 0);
-  lcd.print("Capacitor foil");
-  delay(1500);
-  lcd.setCursor(0, 1);
-  lcd.print("sniffer");
+ void setup()
+ {
+   status = lcd.begin(LCD_COLS, LCD_ROWS);
+   if (status) // non zero status means it was unsuccesful
+   {
+     // hd44780 has a fatalError() routine that blinks an led if possible
+     // begin() failed so blink error code using the onboard LED if possible
+     hd44780::fatalError(status); // does not return
+   }
 
-}
+   // Print a message to the LCD.
+   lcd.clear();
+   delay(500);
+   lcd.setCursor(0, 0);
+   lcd.print("Time elapsed");
+   delay(500);
+   
+  
+ } /*--(end setup )---*/
 
 void loop() {
   // put your main code here, to run repeatedly:
+  // Here cursor is placed on first position (col: 0) of the second line (row: 1)
+  lcd.setCursor(0, 1);
+  // We write the number of seconds elapsed
+  lcd.print(millis() / 1000);
+  lcd.print(" Seconds");
+  delay(100);
 }
