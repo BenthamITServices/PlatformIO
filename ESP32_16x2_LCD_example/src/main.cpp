@@ -1,6 +1,6 @@
 #include <Arduino.h>
 
-#include <Wire.h>
+#include <Wire.h>                           // For I2C communications
 #include <hd44780.h>                        // main hd44780 header
 #include <hd44780ioClass/hd44780_I2Cexp.h>  // i2c expander i/o class header
 
