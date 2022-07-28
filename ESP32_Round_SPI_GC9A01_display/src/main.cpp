@@ -33,6 +33,8 @@ Arduino_GFX *gfx = new Arduino_GC9A01(bus, 7 /* RST */, 0 /* rotation */, true /
  ******************************************************************************/
 
 /* more fonts at: https://github.com/moononournation/ArduinoFreeFontFile.git */
+// Note: put header files in the project include folder and use double quotes to enclose file names.
+// Note: compilation may be required before header files are recognised i.e. no red squiggles.
 #include "FreeMono8pt7b.h"
 #include "FreeSansBold10pt7b.h"
 #include "FreeSerifBoldItalic12pt7b.h"
@@ -52,7 +54,7 @@ void setup(void)
   gfx->setTextColor(RED);
   gfx->println("Hello World!");
 
-  delay(5000); // 5 seconds
+  delay(2000); // 2 seconds
 }
 
 void loop()
