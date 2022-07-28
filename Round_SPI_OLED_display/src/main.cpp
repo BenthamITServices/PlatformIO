@@ -37,7 +37,8 @@ void setup()
 {
 
   ledcSetup(pwmLedChannelTFT, pwmFreq, pwmResolution);
-  ledcAttachPin(5, pwmLedChannelTFT);
+  //ledcAttachPin(5, pwmLedChannelTFT);
+  ledcAttachPin(22, pwmLedChannelTFT);
   ledcWrite(pwmLedChannelTFT, 90);
 
   pinMode(12, INPUT_PULLUP);
